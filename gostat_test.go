@@ -1,4 +1,4 @@
-package numgo
+package gostat
 
 import (
 	"testing"

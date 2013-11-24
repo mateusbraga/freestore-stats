@@ -5,7 +5,8 @@ import (
     "strconv"
     "bufio"
     "log"
-    "github.com/mateusbraga/gostats"
+
+    "github.com/mateusbraga/gostat"
 )
 
 func main() {
@@ -29,7 +30,7 @@ func main() {
     }
 
     log.Println(data)
-    mean := gostats.Mean(data)
+    mean := gostat.Mean(data)
 
 }
 
