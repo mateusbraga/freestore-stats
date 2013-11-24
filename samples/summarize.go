@@ -29,9 +29,12 @@ func main() {
         log.Fatalln("error:", err)
     }
 
-    log.Println(data)
-    mean := gostat.Mean(data)
+    filteredData := gostat.TakeExtremes(data)
+    log.Println("size:", len(filteredData), filteredData)
+    mean := gostat.Mean(filteredData)
+    sd := gostat.StandardDeviation(filteredData)
 
+    log.Println(mean, sd)
 }
 
 

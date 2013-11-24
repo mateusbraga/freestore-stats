@@ -2,10 +2,12 @@ package gostat
 
 import (
     "math"
-    "log"
+    "sort"
 )
 
 func TakeExtremes(s []int64) []int64 {
+    sort.Sort(int64slice(s))
+
     lowerBound := float64(len(s)) * 0.05
     upperBound := float64(len(s)) * 0.95
 
@@ -50,7 +52,6 @@ func StandardDeviation(s []int64) (float64) {
             squaredDiff := squaredDiff(float64(n), mean)
 
             temp = (temp + (float64(squaredDiff)/float64(i-1))) * float64(i-1)/float64(i)
-            log.Println(n, temp)
             i++
         }
     }
@@ -62,3 +63,8 @@ func squaredDiff(a, b float64) float64 {
     temp := a - b
     return temp * temp
 }
+
+type int64slice []int64
+func (s int64slice) Len() int { return len(s) }
+func (s int64slice) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+func (s int64slice) Less(i, j int) bool { return s[i] < s[j] }
