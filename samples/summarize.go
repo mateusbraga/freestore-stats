@@ -29,6 +29,7 @@ func main() {
     }
 
     log.Println(data)
+    mean := gostats.Mean(data)
 
 }
 

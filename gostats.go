@@ -33,7 +33,7 @@ func Mean(s []int64) (float64) {
     return mean
 }
 
-func standardDeviation(s []int64) (float64) {
+func StandardDeviation(s []int64) (float64) {
     var temp float64
     mean := Mean(s)
 
