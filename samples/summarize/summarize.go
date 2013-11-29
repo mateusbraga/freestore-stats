@@ -24,18 +24,6 @@ func main() {
 		scanner := bufio.NewScanner(file)
 
 		var data []int64
-		var throughput float64
-
-		scanner.Scan()
-		if err := scanner.Err(); err != nil {
-			log.Fatalln("error:", err)
-		}
-
-		throughput, err = strconv.ParseFloat(scanner.Text(), 64)
-		if err != nil {
-			log.Fatalln("error parsing float:", err)
-		}
-
 		for scanner.Scan() {
 			val, err := strconv.ParseInt(scanner.Text(), 10, 0)
 			if err != nil {
@@ -51,6 +39,6 @@ func main() {
 		mean := gostat.Mean(filteredData)
 		sd := gostat.StandardDeviation(filteredData)
 
-		fmt.Printf("%v: %v %v:%v\n", filename, mean, sd, throughput)
+		fmt.Printf("%v: %v %v\n", filename, mean, sd)
 	}
 }
