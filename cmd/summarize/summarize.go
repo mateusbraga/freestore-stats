@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/mateusbraga/gostat"
+	"github.com/mateusbraga/freestore-stats"
 )
 
 func main() {
